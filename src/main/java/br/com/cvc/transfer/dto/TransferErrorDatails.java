@@ -9,6 +9,6 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 public class TransferErrorDatails {
-    private String title;
-    private int status;
+    String title;
+    int status;
 }

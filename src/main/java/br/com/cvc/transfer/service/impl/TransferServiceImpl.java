@@ -17,6 +17,7 @@ public class TransferServiceImpl implements TransferService {
 
     @Override
     public Transfer save(Transfer transfer) {
+        TransferRule.checkIfOriginDifferentFromDestination(transfer);
         transfer.setType(TransferRule.defineTransferType(transfer.getTransferAt()));
         transfer.setFeeAmount(TransferRule.calculateFee(transfer));
         return this.transferRepository.save(transfer);

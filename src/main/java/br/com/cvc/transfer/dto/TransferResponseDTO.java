@@ -2,6 +2,7 @@ package br.com.cvc.transfer.dto;
 
 import br.com.cvc.transfer.enums.TransferType;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
@@ -12,6 +13,7 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @RequiredArgsConstructor
+@Builder
 public class TransferResponseDTO {
     private Long id;
     private BigDecimal amount;

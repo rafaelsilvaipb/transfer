@@ -3,6 +3,7 @@ package br.com.cvc.transfer.rules;
 import br.com.cvc.transfer.domain.Transfer;
 import br.com.cvc.transfer.enums.TransferType;
 import br.com.cvc.transfer.exceptions.DateIntervalInvalidException;
+import br.com.cvc.transfer.exceptions.InvalidTransferException;
 import br.com.cvc.transfer.exceptions.UndefinedFeeException;
 
 import java.math.BigDecimal;
@@ -55,5 +56,11 @@ public class TransferRule {
             }
         }
         throw new UndefinedFeeException("Undefined fee");
+    }
+
+    public static void checkIfOriginDifferentFromDestination(Transfer transfer){
+        if(transfer.getOrigin().equals(transfer.getDestination())) {
+            throw new InvalidTransferException("Account origin and destination cannot be the same");
+        }
     }
 }
